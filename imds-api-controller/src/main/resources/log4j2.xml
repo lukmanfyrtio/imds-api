@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+<!-- 		Console Appender -->
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{yyyy-MMM-dd HH:mm:ss:SSS a} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+<!-- 		File Appender -->
+<!-- 		<File name="File" fileName="e:/app.log"> -->
+<!-- 		<PatternLayout pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />  -->
+<!-- 		</File> -->
+
+	</Appenders>
+
+	<Loggers>
+<!-- 		Log everything in custom package -->
+		<Logger name="com.dtt.generic" level="debug" additivity="false">
+			<AppenderRef ref="Console" />
+<!-- 			<AppenderRef ref="File" /> -->
+		</Logger>
+		<Logger name="com.idx.imds.api" level="trace" additivity="false">
+			<AppenderRef ref="Console" />
+<!-- 			<AppenderRef ref="File" /> -->
+		</Logger>
+
+<!-- 		Log everything in Spring Boot -->
+		<Logger name="org.springframework.boot" level="error"
+			additivity="false">
+			<AppenderRef ref="Console" />
+<!-- 			<AppenderRef ref="File" /> -->
+		</Logger>
+
+<!-- 		Log everything in Spring Core -->
+		<Logger name="org.springframework.core" level="error"
+			additivity="false">
+			<AppenderRef ref="Console" />
+<!-- 			<AppenderRef ref="File" /> -->
+		</Logger>
+		<logger name="org.mybatis" level="debug" additivity="false">
+			<AppenderRef ref="Console" />
+		</logger>
+		<Root level="error">
+			<AppenderRef ref="Console" />
+<!-- 			<AppenderRef ref="File" /> -->
+		</Root>
+
+	</Loggers>
+</Configuration>
